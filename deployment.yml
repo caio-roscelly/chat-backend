@@ -13,7 +13,7 @@ spec:
         app: chat-backend
     spec:     # pod spec                  
       containers: 
-      - name: 
+      - name: chat-backend 
         image: us.icr.io/cldstd31-ns/node-web-app:latest # image we pushed
         ports:
           - containerPort: 8080
