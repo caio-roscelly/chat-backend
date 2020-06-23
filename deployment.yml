@@ -1,27 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: NAME_APPLICATION
+  name:  <NAME_APP>
 spec:
- replicas: 2
- selector:
-     matchLabels:
-       app: NAME_APPLICATION
- template:
-   metadata:
-     labels:
-       app: NAME_APPLICATION
-   spec:     # pod spec                  
-     containers:
-     - name: NAME_IMAGE
-       image: us.icr.io/NAMESPACE/NAME_IMAGE:latest
-       ports:
-         - containerPort: 8080
-       env:
-         - name: APIKEY
-           value: VALUE_APIKEY_ASSISTANT
-         - name: URL
-           value: VALUE_URL_ASSISTANT
-         - name: ASSISTANT_ID
-           value: VALUE_SKILL_ID_ASSISTANT
-       imagePullPolicy: Never
+  replicas: 2
+  selector:
+      matchLabels:
+        app:  <NAME_APP>
+  template:
+    metadata:
+      labels: # labels to select/identify the deployment
+        app: <NAME_APP>
+    spec:     # pod spec                  
+      containers: 
+      - name: <IMAGE_NAME>
+        image: us.icr.io/<NAME_SPACE>/<IMAGE_NAME>:latest # image we pushed
+        ports:
+          - containerPort: 8080
+        env:
+          - name: APIKEY
+            value: D7ECw0pntdQAiVkJusrdWRvNH9xqHiSdJoNSo2NnD5Be
+          - name: URL
+            value: https://api.us-south.assistant.watson.cloud.ibm.com/instances/fce076b9-8103-4e56-82ed-270eb33d699f
+          - name: ASSISTANT_ID
+            value: 83a3bcd6-bdae-419d-b4d6-2247535b7f6f
