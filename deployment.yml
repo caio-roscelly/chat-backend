@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name:  chat-backend
+  name:  node-web-app
 spec:
   replicas: 2
   selector:
       matchLabels:
-        app:  chat-backend
+        app:  node-web-app
   template:
     metadata:
       labels: # labels to select/identify the deployment
-        app: chat-backend
+        app: node-web-app
     spec:     # pod spec                  
       containers: 
-      - name: chat-backend 
+      - name: node-web-app 
         image: us.icr.io/cldstd31-ns/node-web-app:latest # image we pushed
         ports:
           - containerPort: 8080
